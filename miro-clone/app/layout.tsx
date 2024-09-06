@@ -18,12 +18,10 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className}>
-        <div>
         <ConvexClientProvider>
-                { children }
-            </ConvexClientProvider>
-        </div>
-        </body>
+          { children }
+        </ConvexClientProvider>
+      </body>
     </html>
   );
 }
