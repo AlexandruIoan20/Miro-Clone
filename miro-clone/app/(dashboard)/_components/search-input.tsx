@@ -28,8 +28,6 @@ export const SearchInput = () => {
         })
 
         router.push(url); 
-        console.log("url: "); 
-        console.log(url); 
     }, [ value, router ]); 
     
     return ( 
