@@ -39,7 +39,8 @@ export const NavigationBar = () => {
                     }
                 />
             </div>
-            { organization && <InviteButton /> }
+            { organization &&
+                <InviteButton /> }
             <UserButton /> 
         </div>
     ); 
