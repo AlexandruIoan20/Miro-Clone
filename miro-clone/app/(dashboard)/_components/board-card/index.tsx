@@ -3,6 +3,9 @@
 import Link from "next/link";
 import Image from "next/image";
 import { Overlay } from "./overlay";
+import { useAuth } from "@clerk/clerk-react";
+import { formatDistanceToNow } from "date-fns"; 
+import { Footer } from "./Footer";
 
 interface BoardCardProps { 
     id: string; 
@@ -25,6 +28,12 @@ export const BoardCard = ({
     orgId, 
     isFavourite
 }: BoardCardProps) => { 
+    const { userId } = useAuth(); 
+    const authorLabel = userId === authorId ? "You" : authorName; 
+    const createdAtLabel = formatDistanceToNow(createdAt, { 
+        addSuffix: true 
+    }); 
+
     return ( 
         <div>
             <Link href = { `/board/${id}`}>
@@ -38,6 +47,14 @@ export const BoardCard = ({
                         /> 
                         <Overlay /> 
                     </div>
+                    <Footer
+                        isFavourite = { isFavourite }
+                        title = { title }
+                        authorLabel = { authorLabel }
+                        createdAtLabel = { createdAtLabel }
+                        onClick = { () => { }}
+                        disabled = { false }
+                    /> 
                 </div>
             </Link>
         </div>
