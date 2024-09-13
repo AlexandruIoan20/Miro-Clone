@@ -14,8 +14,26 @@ export const get = query({
             .query("boards")  
             .withIndex("by_org", (q) => q.eq("orgId", args.orgId))
             .order("desc")
-            .collect(); 
+            .collect();
+            
+        const boardWithFavouriteRelation = boards.map((board) => { 
+            return context.db
+                .query("userFavourites")
+                .withIndex("by_user_board", (q) => 
+                    q   
+                        .eq("userId", identity.subject)
+                        .eq("boardId", board._id)
+                )
+                .unique()
+                .then((favourite) => { 
+                    return { 
+                        ...board, 
+                        isFavourite: !!favourite
+                    }; 
+                }); 
+        }); 
 
-        return boards; 
+        const boardsWithFavouriteBoolean = Promise.all(boardWithFavouriteRelation); 
+        return boardsWithFavouriteBoolean; 
     }
 })
