@@ -4,8 +4,6 @@ import { Info } from "./info";
 import { Participants } from "./participants";
 import { Toolbar } from "./toolbar";
 
-import { useThreads } from "@liveblocks/react";
-
 interface CanvasProps { 
     boardId: string, 
 }
