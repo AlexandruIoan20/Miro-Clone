@@ -6,9 +6,11 @@ usehooks-ts, query-string: debounce messy inputs and put them in links
 unDraw (website): free images
 date-fns: date format
 zustand: custom hooks
+convex-helpers
 
 -Convex: database, backend
 -Clerk: Authentification
+
 
 
 @@TODO: Learn about Auth.js
