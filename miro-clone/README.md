@@ -10,7 +10,7 @@ convex-helpers: special queries
 
 -Convex: database, backend
 -Clerk: Authentification
--Liveblocks
+-Liveblocks 
 
 
 
