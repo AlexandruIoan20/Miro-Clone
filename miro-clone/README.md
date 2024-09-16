@@ -6,10 +6,11 @@ usehooks-ts, query-string: debounce messy inputs and put them in links
 unDraw (website): free images
 date-fns: date format
 zustand: custom hooks
-convex-helpers
+convex-helpers: special queries
 
 -Convex: database, backend
 -Clerk: Authentification
+-Liveblocks
 
 
 
