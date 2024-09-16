@@ -1,4 +1,4 @@
-import { mutation } from "./_generated/server"; 
+import { mutation, query } from "./_generated/server"; 
 import { v } from "convex/values"; 
 
 const images = [ 
@@ -151,3 +151,13 @@ export const unfavourite = mutation({
         await context.db.delete(existingFavourite._id); 
     }
 })
+
+export const get = query({ 
+    args: { 
+        id: v.id("boards"), 
+    }, 
+    handler: async (context, args) => { 
+        const board = context.db.get(args.id); 
+        return board; 
+    }
+}); 
