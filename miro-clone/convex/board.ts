@@ -49,8 +49,18 @@ export const remove = mutation({
         if(!identity) { 
             throw new Error("Unauthorized"); 
         }
+ 
+        const userId = identity.subject; 
+        const existingFavourite = await context.db
+            .query("userFavourites")
+            .withIndex("by_user_board", (q) => 
+                q   
+                    .eq("userId", userId)
+                    .eq("boardId", args.id)
+            )
+            .unique(); 
 
-        // TO DO: Later check to delete favourite relation as well 
+            if(existingFavourite) await context.db.delete(existingFavourite._id); 
 
         await context.db.delete(args.id); 
     }

@@ -6,8 +6,10 @@ import { useOrganization } from "@clerk/clerk-react";
 import { api } from "@/convex/_generated/api";
 import { useApiMutation } from "@/hooks/useApiMutation";
 import { toast } from "sonner";
+import { useRouter } from "next/navigation";
 
 export const EmptyBoards = () => { 
+    const router = useRouter(); 
     const { organization } = useOrganization(); 
     const { mutate, pending } = useApiMutation(api.board.create); 
 
@@ -16,8 +18,12 @@ export const EmptyBoards = () => {
         mutate({ 
             orgId: organization.id, 
             title: "Untitled"
-        }).then((id) => { toast.success("Board created")}) // TO DO: redirect to board/{id}
-        .catch((err) => { toast.error("Failed to create the board")})
+        }).then((id) => { 
+            toast.success("Board created"); 
+            router.push(`/board/${id}`); 
+        }).catch((err) => { 
+            toast.error("Failed to create the board"); 
+        })
     }
     return ( 
         <div className = "h-full flex flex-col items-center justify-center">

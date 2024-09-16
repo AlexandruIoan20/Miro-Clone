@@ -10,3 +10,6 @@ zustand: custom hooks
 -Convex: database, backend
 -Clerk: Authentification
 
+
+@@TODO: Learn about Auth.js
+
