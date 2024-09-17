@@ -7,6 +7,7 @@ unDraw (website): free images
 date-fns: date format
 zustand: custom hooks
 convex-helpers: special queries
+nanoid: for ids in front end
 
 -Convex: database, backend
 -Clerk: Authentification
