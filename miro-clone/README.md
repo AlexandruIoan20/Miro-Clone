@@ -8,6 +8,7 @@ date-fns: date format
 zustand: custom hooks
 convex-helpers: special queries
 nanoid: for ids in front end
+react-contenteditable: for adding text
 
 -Convex: database, backend
 -Clerk: Authentification
