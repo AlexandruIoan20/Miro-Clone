@@ -9,6 +9,7 @@ zustand: custom hooks
 convex-helpers: special queries
 nanoid: for ids in front end
 react-contenteditable: for adding text
+perfect-freehand
 
 -Convex: database, backend
 -Clerk: Authentification
